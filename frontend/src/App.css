@@ -1,0 +1,46 @@
+/* src/App.css */
+.app-container {
+  display: flex; /* Yan yana düzen için flex layout kullan */
+  min-height: 100vh; /* Tüm ekran yüksekliğini kapla */
+}
+
+.app-nav {
+  background-color: #343a40; /* Koyu bir arka plan rengi */
+  color: white; /* Metin rengi beyaz */
+  width: 200px; /* Sabit bir genişlik */
+  padding: 20px;
+}
+
+.app-nav ul {
+  list-style: none; /* Madde işaretlerini kaldır */
+  padding: 0;
+  margin: 0;
+}
+
+.app-nav li {
+  margin-bottom: 10px;
+}
+
+.app-nav a {
+  display: block; /* Tüm satırı kaplaması için block yap */
+  color: white;
+  text-decoration: none; /* Alt çizgiyi kaldır */
+  padding: 10px 15px;
+  border-radius: 5px; /* Köşeleri yuvarlak yap */
+  transition: background-color 0.3s ease; /* Hover efekti için geçiş */
+}
+
+.app-nav a:hover {
+  background-color: #495057; /* Hover olduğunda daha açık bir renk */
+}
+
+.content {
+  flex: 1; /* Kalan alanı kapla */
+  padding: 20px;
+}
+
+/* Sayfa başlıkları için örnek stil */
+.content h2 {
+  color: #007bff;
+  margin-bottom: 20px;
+}
