@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8081:8081"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/hospitaldb
+      - SPRING_DATASOURCE_USERNAME=hospital_user
+      - SPRING_DATASOURCE_PASSWORD=hospital123
+      - JWT_SECRET=your_jwt_secret_key
+    depends_on:
+      - db
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:80"
+    environment:
+      - REACT_APP_API_URL=http://backend:8081
+    depends_on:
+      - backend
+
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: hospitaldb
+      POSTGRES_USER: hospital_user
+      POSTGRES_PASSWORD: hospital123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:
+
